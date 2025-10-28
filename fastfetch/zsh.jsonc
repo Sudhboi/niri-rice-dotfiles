@@ -1,0 +1,69 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "source": "~/.config/fastfetch/sudhir.txt",
+        "color": {
+            "1": "#D65D0E",
+            "2": "#D79921", 
+            "3": "135",
+            "4": "171",
+            "5": "207"
+        }
+    },
+    "display": {
+        "separator": "",
+        "color": "#D65D0E",
+        "constants": ["\u001b[0m", "\u001b[33m", "\u001b[31m", "\u001b[93m"]
+    },
+    "modules": [
+        "break",
+        {
+            "type": "custom",
+            "key": "╭─────────────────────────────────╮"
+        },
+        {
+            "type": "kernel",
+            "key": "│  kernel  ",
+            "format": "{release>21}  │"
+        },
+        {
+            "type": "command",
+            "key": "│  uptime  ",
+            "text": "uptime -p | cut -d ' ' -f 2-",
+            "format": "{>21}  │"
+        },
+        {
+            "type": "shell",
+            "key": "│  shell   ",
+            "format": "{pretty-name>21}  │"
+        },
+        {
+            "type": "command",
+            "key": "│  mem     ",
+            "text": "free -m | awk 'NR==2{printf \"%.2f GiB / %.2f GiB\",$3/1024,$2/1024}'",
+            "format": "{>21}  │"
+        },
+        {
+            "type": "packages",
+            "key": "│  pkgs    ",
+            "format": "{all>21}  │"
+        },
+        {
+            "type": "command",
+            "key": "│  user    ",
+            "text": "echo $USER",
+            "format": "{>21}  │"
+        },
+        {
+            "type": "command",
+            "key": "│  hname   ",
+            "text": "hostnamectl hostname",
+            "format": "{>21}  │"
+        },
+        {
+            "type": "custom",
+            "key": "╰─────────────────────────────────╯"
+        },
+        "break"
+    ]
+}
