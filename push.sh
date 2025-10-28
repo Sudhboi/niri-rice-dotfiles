@@ -3,7 +3,7 @@
 echo "Enter Commit Message: "
 read commit_message
 
-export DOTFILES="~/.backups/dotfiles"
+export DOTFILES="/home/sudhirk/.backups/dotfiles"
 
 
 cp -r ~/.config/niri $DOTFILES/.config
@@ -17,7 +17,7 @@ cp -r ~/.config/nvim $DOTFILES/.config
 cp -r ~/.config/rofi $DOTFILES/.config
 cp -r ~/.config/tmux $DOTFILES/.config
 cp -r ~/.config/waybar $DOTFILES/.config
-cp -r ~/.config/yazu $DOTFILES/.config
+cp -r ~/.config/yazi $DOTFILES/.config
 
 
 cd $DOTFILES

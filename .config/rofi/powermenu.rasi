@@ -1,0 +1,56 @@
+* {
+    font: "JetBrains Mono 12";
+}
+
+configuration {
+    font: "JetBrainsMono 12";
+}
+
+window {
+    background-color: black / 60%;
+    border-color: black / 90%;
+    border-radius: 10px 10px 10px 10px;
+
+    height: 15%;
+    width: 200px;
+    border: 0px 0px 0px 0px;
+    margin: 20px;
+    padding: 10px;
+
+    location: center;
+    anchor: west;
+}
+
+mainbox {
+    children: [listview];
+}
+
+listview {
+    scrollbar: false;
+    background-color: transparent;
+    border: 0px 0px 0px 0px;
+}
+
+element {
+    padding: 2px;
+    horizontal-align: 0.5;
+}
+
+element-text {
+     horizontal-align: 0.5;
+}
+
+element alternate.normal, element normal.normal {
+    background-color: transparent;
+    text-color: white / 90%;
+}
+
+element selected.normal {
+    background-color: transparent;
+    text-color: white / 90%;
+    border-radius: 10px;
+    border: 1px 1px 1px 1px;
+    border-color: white / 90%;
+}
+
+

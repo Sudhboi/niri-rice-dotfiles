@@ -1,0 +1,64 @@
+
+@theme "/usr/share/rofi/themes/sidebar-v2.rasi"
+
+window {
+    background-color: black / 30%;
+    border-color: black / 90%;
+    border-radius: 10px 10px 10px 10px;
+
+    height: 22%;
+    border: 0px 0px 0px 0px;
+    margin: 20px;
+    padding: 10px;
+
+    location: south;
+    anchor: center;
+}
+
+inputbar {
+    children: [entry];
+}
+
+entry {
+    border-radius: 10px 10px 10px 10px;
+    horizontal-align: 0.5;
+    hide-cursor-on-empty: true;
+    background-color: transparent;
+    text-color: white / 90%;
+    font: "JetBrainsMono 10";
+}
+
+element {
+    border-radius: 10px;
+}
+
+mainbox {
+    children: [
+	        inputbar,
+		listview,
+		textbox-current-entry
+    ];
+    spacing: 10px;
+}
+
+textbox-current-entry {
+    background-color: transparent;
+    text-color: white / 90%;
+    font: "JetBrainsMono 12";
+    placeholder: "";
+}
+
+element selected normal {
+    background-color: transparent;
+    border-color: white / 90%;
+    border: 1px 1px 1px 1px;
+}
+
+listview {
+    lines: 1;
+}
+
+entry, element-text, textbox, listview {
+    font: "JetBrainsMono 12";
+}
+
