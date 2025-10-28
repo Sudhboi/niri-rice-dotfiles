@@ -10,6 +10,7 @@ cp -r ~/.config/niri $DOTFILES/.config
 cp -r ~/.config/btop $DOTFILES/.config
 cp -r ~/.config/cava $DOTFILES/.config
 cp -r ~/.config/fastfetch $DOTFILES/.config
+cp -r ~/.config/hypr $DOTFILES/.config
 
 
 cd $DOTFILES
