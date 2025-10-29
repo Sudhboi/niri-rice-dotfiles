@@ -17,7 +17,7 @@ cp -r ~/.config/nvim $DOTFILES/.config
 cp -r ~/.config/rofi $DOTFILES/.config
 cp -r ~/.config/tmux $DOTFILES/.config
 cp -r ~/.config/waybar $DOTFILES/.config
-cp -r ~/.config/yazi $DOTFILES/.config
+#cp -r ~/.config/yazi $DOTFILES/.config
 
 
 cd $DOTFILES
