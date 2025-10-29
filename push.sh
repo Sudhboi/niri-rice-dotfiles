@@ -6,10 +6,10 @@ read commit_message
 export DOTFILES="/home/sudhirk/.backups/dotfiles"
 
 function copydir () {
-    cp -r ~/.config/$1 $DOTFILES/.config
+    cp -r ~/.config/$1 $DOTFILES/.config >> "/home/sudhirk/.backups/push_log.txt"
 }
 
-cp -r ~/.config/niri $DOTFILES/.config >> "/home/sudhirk/.backups/push_log.txt"
+copydir niri
 copydir btop
 copydir cava
 copydir fastfetch
@@ -33,7 +33,7 @@ git push -u origin main
 echo "\nPrint Log?"
 read confirm
 
-if ["$confirm" = "y"]; then
+if [ "$confirm" = "y" ]; then
     cat "/home/sudhirk/.backups/push_log.txt"
 fi
 
