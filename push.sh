@@ -6,7 +6,7 @@ read commit_message
 export DOTFILES="/home/sudhirk/.backups/dotfiles"
 
 function copydir () {
-    cp -r ~/.config/$1 $DOTFILES/.config >> "/home/sudhirk/.backups/push_log.txt"
+    cp -r ~/.config/$1 $DOTFILES/.config 2>> "/home/sudhirk/.backups/log.txt"
 }
 
 copydir niri
