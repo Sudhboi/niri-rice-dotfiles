@@ -6,10 +6,22 @@ This is my (gruvbox-adjacent) Niri rice with a focus on transparency and changin
 
 | Tool | Application |
 |:-----------:|:----:|
-| Distro | Fedora Workstation 42 (update to 43 soon) |
+| Distro | Fedora 42 |
 | Window Manager | Niri |
 | Status Bar | Waybar |
-| Shell| zsh|
 | Wallpaper Daemon | wpaperd|
+| Resource Monitor | btop |
+| Lock Screen | hyprlock |
+| Idle Daemon | hypridle |
+| Notification Manager | mako |
+| Editor | Neovim |
+| File Manager | yazi |
+
+| Terminal Stuff | Application |
+|:--------------:|:------------:|
+|Terminal Emulator|Kitty|
+|Shell|zsh|
+|Fetch|fastfetch|
+|Prompt|starship|
 
 
