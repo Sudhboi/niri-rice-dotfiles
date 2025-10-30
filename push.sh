@@ -29,7 +29,7 @@ cd $DOTFILES
 git add -A
 
 git commit -m $commit_message
-git push -u origin main
+git push 
 
 echo "\nPrint Log?"
 read confirm
