@@ -22,6 +22,7 @@ copydir tmux
 copydir waybar
 copydir zellij
 
+cp -r ~/.zshrc $DOTFILES/.config
 
 cd $DOTFILES
 
