@@ -5,7 +5,10 @@ This is my (gruvbox-adjacent) Niri rice with a focus on transparency and changin
 ## Screenshots and GIFs
 
 ![Main Screenshot](ScreenShots_GIFs/mainshot.png)
-
+![Alternate Screenshot](ScreenShots_GIFs/alternative.png)
+![Rofi](ScreenShots_GIFs/rofi.png)
+![LazyVim](ScreenShots_GIFs/vim.png)
+![Overview](ScreenShots_GIFs/overview.png)
 ## My Setup
 
 | Tool | Application |
