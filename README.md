@@ -5,14 +5,21 @@ This is my (gruvbox-adjacent) Niri rice with a focus on transparency and changin
 ## Screenshots and GIFs
 
 Screenshots:
+
 ![Main Screenshot](ScreenShots_GIFs/mainshot.png)
 
 ![Alternate Screenshot](ScreenShots_GIFs/alternative.png)
-Rofi:
+
+Rofi
+
 ![Rofi](ScreenShots_GIFs/rofi.png)
-Neovim:
+
+Neovim
+
 ![LazyVim](ScreenShots_GIFs/vim.png)
-Overview:
+
+Overview
+
 ![Overview](ScreenShots_GIFs/overview.png)
 ## My Setup
 
@@ -28,6 +35,7 @@ Overview:
 | Notification Manager | mako |
 | File Manager | yazi |
 | App Launcher | rofi |
+| GRUB Theme | Grubshin Bootpact |
 
 | Terminal Stuff | Application |
 |:--------------:|:------------:|

@@ -38,4 +38,6 @@ if [ "$confirm" = "y" ]; then
     cat "/home/sudhirk/.backups/log.txt"
 fi
 
+purge-dotfiles-log
+
 
