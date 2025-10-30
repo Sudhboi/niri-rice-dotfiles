@@ -34,7 +34,7 @@ echo "\nPrint Log?"
 read confirm
 
 if [ "$confirm" = "y" ]; then
-    cat "/home/sudhirk/.backups/push_log.txt"
+    cat "/home/sudhirk/.backups/log.txt"
 fi
 
 
