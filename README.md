@@ -4,7 +4,7 @@ This is my (gruvbox-adjacent) Niri rice with a focus on transparency and changin
 
 ## Screenshots and GIFs
 
-![Main Screenshot](Screenshots_GIFs/mainshot.png)
+![Main Screenshot](ScreenShots_GIFs/mainshot.png)
 
 ## My Setup
 
