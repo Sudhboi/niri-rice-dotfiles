@@ -1,8 +1,5 @@
 #!/bin/zsh
 
-echo "Enter Commit Message: "
-read commit_message
-
 export DOTFILES="/home/sudhirk/.backups/dotfiles"
 
 function copydir () {
@@ -24,7 +21,17 @@ copydir zellij
 
 cp -r ~/.zshrc $DOTFILES/.config
 
+echo "\nPrint Diff?"
+read diff
+
 cd $DOTFILES
+
+if [ "$diff" = "y" ]; then
+    git diff
+fi
+
+echo "Enter Commit Message: "
+read commit_message
 
 git add -A
 
@@ -38,6 +45,6 @@ if [ "$confirm" = "y" ]; then
     cat "/home/sudhirk/.backups/log.txt"
 fi
 
-purge-dotfiles-log
+rm "/home/sudhirk/.backups/log.txt"
 
 

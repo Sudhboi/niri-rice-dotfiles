@@ -132,6 +132,11 @@ function javafx-run() {
     java-fx $1
 }
 
+function mc () {
+    mkdir $1
+    cd $1
+}
+
 alias dotfiles="/home/sudhirk/.backups/dotfiles/push.sh"
 alias purge-dotfiles-log="rm /home/sudhirk/.backups/log.txt"
 

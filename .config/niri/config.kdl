@@ -334,6 +334,12 @@ window-rule {
 }
 
 window-rule {
+    match app-id=r#"UserInterface"#
+    open-floating true
+    draw-border-with-background false
+}
+
+window-rule {
     match app-id=r#"obsidian$"#
     opacity 0.95
 }
@@ -374,6 +380,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Alt+Space {spawn "kitty"; }
     Mod+Space hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun -theme appmenu.rasi"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
     Super+Alt+P {spawn-sh "~/.config/waybar/scripts/powermenu"; }
