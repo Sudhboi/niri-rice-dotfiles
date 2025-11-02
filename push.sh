@@ -30,7 +30,7 @@ if [ "$diff" = "y" ]; then
     git diff
 fi
 
-echo "Enter Commit Message: "
+echo "\nEnter Commit Message: "
 read commit_message
 
 git add -A

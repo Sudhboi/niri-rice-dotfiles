@@ -2,16 +2,14 @@
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: 'JetBrainsMono Nerd Font Propo',FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 13px;
-    border-radius: 0px;
-    transition-duration: 0.5s;
+    border-radius: 10px;
 }
 
 window#waybar {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.3);
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
-    border-radius: 0px;
 }
 
 window#waybar.hidden {
@@ -19,16 +17,10 @@ window#waybar.hidden {
 }
 
 
-
-window#waybar.empty {
-    opacity: 0.1;
-    transition-duration: 0.5s;
-}
-
-window#waybar.empty:hover {
-    background-color: rgba(0, 0, 0, 0.9);
-}
 /*
+window#waybar.empty {
+    background-color: transparent;
+}
 window#waybar.solo {
     background-color: rgba(0, 0, 0, 0.5);
 }
@@ -43,8 +35,6 @@ window#waybar.chromium {
     border: none;
 }
 
-
-
 button {
     /* Use box-shadow instead of border so the text isn't offset */
     box-shadow: inset 0 -3px transparent;
@@ -56,16 +46,15 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -2px rgba(235, 219, 178, 0.8);
+    box-shadow: inset 0 -3px #ffffff;
 }
 
 #taskbar button {
-    border-radius: 0px;
+    border-radius: 10px;
 }
 
 #taskbar button.active {
-    background: rgba(0, 0, 0, 0.5);
-    box-shadow: inset 0 -2px rgba(184, 187, 38, 0.8);
+    background: rgba(0, 0, 0, 0.5)
 }
 
 /* you can set a style on hover for any module like this 
@@ -76,16 +65,16 @@ button:hover {
 
 #workspaces {
     background: rgba(0, 0, 0, 0.0);
-    border-radius: 0px;
-    margin: 0px 0px;
-    padding: 0px 0px;
+    border-radius: 10px;
+    margin: 6px 1px;
+    padding: 3px 3px;
 }
 
 #workspaces button {
-    padding: 0 7px;
+    padding: 0 5px;
     background-color: transparent;
     color: #ffffff;
-    border-radius: 0px;
+    border-radius: 2px;
     transition: 0.2s ease-in-out;
     font-size: 15px;
 }
@@ -93,12 +82,8 @@ button:hover {
 #workspaces button.active {
     min-width: 50px;
     background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 0px;
+    border-radius: 10px;
     font-weight: 900;
-}
-
-#workspaces button.active:hover {
-    color: #b8bb26;
 }
 
 #workspaces button:hover {
@@ -107,7 +92,7 @@ button:hover {
 
 #workspaces button.focused {
     background-color: rgba(0, 0, 0, 0.3);
-    box-shadow: inset 0 -2px #b8bb26;
+    /* box-shadow: inset 0 -3px #ffffff; */
 }
 
 #workspaces button.urgent {
@@ -149,9 +134,9 @@ button:hover {
 #window,
 #power-profiles-daemon,
 #mpd {
-    padding: 0 15px;
+    padding: 0 10px;
     color: rgba(255, 255, 255, 0.9);
-    margin: 0 0px;
+    margin: 0 5px;
     background: transparent;
 }
 
@@ -161,105 +146,61 @@ button:hover {
     background-color: rgba(0, 0, 0, 0.3)
 }
 
-#window {
-    box-shadow: inset 0 -2px rgba(214, 93, 14, 0.8);
-    padding: 0 15px;
-}
-
 #custom-powerbutton:hover {
-    color: rgba(204, 36, 29, 0.8);
+    color: #CC241D;
     transition-duration: .5s;
     background-color: rgba(0, 0, 0, 0.3)
-}
-
-#custom-powerbutton {
-    box-shadow: inset 0 -2px rgba(204, 36, 29, 0.8);
 }
 
 #custom-reboot:hover {
-    color: rgba(215, 153, 33, 0.8);
+    color: #D79921;
     transition-duration: .5s;
     background-color: rgba(0, 0, 0, 0.3)
-}
-
-#custom-reboot {
-    box-shadow: inset 0 -2px rgba(215, 153, 33, 0.8);
 }
 
 #custom-suspend:hover {
-    color: rgba(168, 153, 132, 0.8);
+    color: #A89984;
     transition-duration: .5s;
     background-color: rgba(0, 0, 0, 0.3)
-}
-
-#custom-suspend {
-    box-shadow: inset 0 -2px rgba(168, 153, 132, 0.8);
 }
 
 #custom-lock:hover {
-    color: rgba(69, 133, 136, 0.8);
+    color: #458588;
     transition-duration: .5s;
     background-color: rgba(0, 0, 0, 0.3)
-}
-
-#custom-lock {
-    box-shadow: inset 0 -2px rgba(69, 133, 136, 0.8);
 }
 
 #custom-appmenu:hover {
-    color: rgba(215, 153, 33, 0.8);
+    color: #D79921;
     transition-duration: .5s;
     background-color: rgba(0, 0, 0, 0.3)
-}
-
-#custom-appmenu {
-    box-shadow: inset 0 -2px rgba(215, 153, 33, 0.8);
 }
 
 #custom-playpause:hover {
-    color: rgba(215, 153, 33, 0.8);
+    color: #D79921;
     transition-duration: .5s;
     background-color: rgba(0, 0, 0, 0.3)
-}
-
-#custom-playpause {
-    box-shadow: inset 0 -2px rgba(215, 153, 33, 0.8);
 }
 
 #battery:hover, 
 #battery.charging:hover, 
 #battery.plugged:hover {
-    color: rgba(104, 157, 106, 0.8);
+    color: #689D6A;
     transition-duration: .5s;
     background-color: rgba(0, 0, 0, 0.3)
-}
-
-#battery,
-#battery.charging,
-#battery.plugged {
-    box-shadow: inset 0 -2px rgba(104, 157, 106, 0.8);
 }
 
 #clock:hover {
-    color: rgba(69, 133, 136, 0.8);
+    color: #458588;
     transition-duration: .5s;
     background-color: rgba(0, 0, 0, 0.3)
-}
-
-#clock {
-    box-shadow: inset 0 -2px rgba(69, 133, 136, 0.8);
 }
 
 #pulseaudio.muted:hover,
 #pulseaudio:hover {
-    color: rgba(177, 98, 134, 0.8);
+    color: #B16286;
     transition-duration: .5s;
     background-color: rgba(0, 0, 0, 0.3)
-}
-
-#pulseaudio,
-#pulseaudio.muted {
-    box-shadow: inset 0 -2px rgba(177, 98, 134, 0.8);
 }
 
 #backlight:hover {
@@ -268,28 +209,16 @@ button:hover {
     background-color: rgba(0, 0, 0, 0.3)
 }
 
-#backlight {
-    box-shadow: inset 0 -2px rgba(214, 93, 14, 0.8);
-}
-
 #user:hover {
     color: #689D6A;
     transition-duration: .5s;
     background-color: rgba(0, 0, 0, 0.3)
 }
 
-#user {
-    box-shadow: inset 0 -2px rgba(104, 157, 106, 0.8);
-}
-
 #custom-idlekiller:hover {
     color: #B16286;
     transition-duration: .5s;
     background-color: rgba(0, 0, 0, 0.3)
-}
-
-#custom-idlekiller {
-    box-shadow: inset 0 -2px rgba(177, 98, 134, 0.8);
 }
 
 #custom-weather {
@@ -529,9 +458,8 @@ label:focus {
 }
 
 #pulseaudio-slider {
-    padding: 0 10px;
+    padding: 0;
     margin: 0;
-    box-shadow: inset 0 -2px rgba(177, 98, 134, 0.8);
 }
 #pulseaudio-slider slider {
     min-height: 0px;
@@ -557,8 +485,7 @@ label:focus {
     transition-duration: 0.5s;
 } 
 #backlight-slider {
-    box-shadow: inset 0 -2px rgba(214, 93, 14, 0.8);
-    padding: 0 10px;
+    padding: 0;
     margin: 0;
 }
 #backlight-slider slider {

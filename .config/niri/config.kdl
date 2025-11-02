@@ -109,7 +109,7 @@ output "eDP-1" {
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 10
+    gaps 5
     background-color "transparent"
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -135,7 +135,7 @@ layout {
     // preset-window-heights { }
 
     // You can change the default width of the new windows.
-    default-column-width { proportion 0.8; }
+    default-column-width { proportion 0.5; }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
     // default-column-width {}
 
@@ -264,7 +264,7 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-sh-at-startup "sleep 2 && hyprlock"
+spawn-sh-at-startup "sleep 2 && hyprlock --grace 30"
 spawn-sh-at-startup "sleep 3 && waybar"
 spawn-at-startup "mako"
 spawn-sh-at-startup "~/.local/bin/wpaperd -d"
@@ -359,7 +359,7 @@ window-rule {
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
 window-rule {
-    geometry-corner-radius 10
+    geometry-corner-radius 10 
     clip-to-geometry true
 }
 
@@ -567,9 +567,9 @@ binds {
     // Expel the bottom window from the focused column to the right.
     Mod+Period { expel-window-from-column; }
 
-    Mod+Alt+R { switch-preset-column-width; }
+    Mod+Alt+R { switch-preset-column-width-back; }
     // Cycling through the presets in reverse order is also possible.
-    Mod+R { switch-preset-column-width-back; }
+    Mod+R { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
     Mod+F { maximize-column; }
