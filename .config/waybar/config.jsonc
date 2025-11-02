@@ -2,7 +2,7 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 30, // Waybar height (to be removed for auto height)
+    //"height": 10, // Waybar height (to be removed for auto height)
     //"width": 1590, // Waybar width
     //"margin-top": 10,
     //"margin-left":10,
@@ -51,8 +51,8 @@
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}",
-        //"format": "{:%H:%M:%S}",
-        //"interval": 1
+        "format": "{:%H:%M:%S}",
+        "interval": 1
     },
    "backlight": {
         // "device": "acpi_video1",

@@ -62,7 +62,7 @@ input {
     }
 
     // Uncomment this to make the mouse warp to the center of newly focused windows.
-    // warp-mouse-to-focus
+    //warp-mouse-to-focus
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
@@ -117,7 +117,9 @@ layout {
     // - "always", the focused column will always be centered.
     // - "on-overflow", focusing a column will center it if it doesn't fit
     //   together with the previously focused column.
-    center-focused-column "on-overflow"
+    center-focused-column "never"
+    always-center-single-column
+    //default-column-display "tabbed"
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -178,7 +180,7 @@ layout {
         // You can use any CSS linear-gradient tool on the web to set these up.
         // Changing the color space is also supported, check the wiki for more info.
         //
-        active-gradient from="#0000004d" to="#ffffffe6" angle=45
+        active-gradient from="#000000ff" to="#928374e6" angle=45
         //active-gradient from="#f00f" to="#0f05" angle=45 in="oklch longer hue"
         // You can also color the gradient relative to the entire view
         // of the workspace, rather than relative to just the window itself.
@@ -203,9 +205,9 @@ layout {
         // Gradients can use a few different interpolation color spaces.
         // For example, this is a pastel rainbow gradient via in="oklch longer hue".
         //
-        // active-gradient from="#e5989b" to="#ffb4a2" angle=45 relative-to="workspace-view" in="oklch longer hue"
+        active-gradient from="#e5989b" to="#ffb4a2" angle=45 relative-to="workspace-view" in="oklch longer hue"
 
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+        inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
 
     // You can enable drop shadows for windows.
@@ -253,8 +255,8 @@ layout {
     struts {
         // left 64
         // right 64
-        // top 64
-        // bottom 64
+        //top 30
+        //bottom -4
     }
 }
 
@@ -298,13 +300,13 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // Animation settings.
 // The wiki explains how to configure individual animations:
 // https://yalter.github.io/niri/Configuration:-Animations
-animations {
+//animations {
     // Uncomment to turn off all animations.
-    // off
+    //off
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
-    // slowdown 3.0
-}
+    //slowdown 2.0
+//}
 
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
@@ -359,7 +361,7 @@ window-rule {
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
 window-rule {
-    geometry-corner-radius 10 
+    geometry-corner-radius 15 15 0 0
     clip-to-geometry true
 }
 
@@ -382,7 +384,7 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Alt+Space {spawn "kitty"; }
     Mod+Space hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun -theme appmenu.rasi"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn-sh "hyprlock --grace 30"; }
     Super+Alt+P {spawn-sh "~/.config/waybar/scripts/powermenu"; }
     Super+Alt+Return {spawn-sh "poweroff"; }
     Mod+B {spawn-sh "kitty btop"; }
