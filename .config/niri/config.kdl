@@ -180,13 +180,13 @@ layout {
         // You can use any CSS linear-gradient tool on the web to set these up.
         // Changing the color space is also supported, check the wiki for more info.
         //
-        active-gradient from="#000000ff" to="#928374e6" angle=45
+        //active-gradient from="#000000ff" to="#928374e6" angle=45
         //active-gradient from="#f00f" to="#0f05" angle=45 in="oklch longer hue"
         // You can also color the gradient relative to the entire view
         // of the workspace, rather than relative to just the window itself.
         // To do that, set relative-to="workspace-view".
         //
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+        active-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
 
     // You can also add a border. It's similar to the focus ring, but always visible.
@@ -361,8 +361,9 @@ window-rule {
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
 window-rule {
-    geometry-corner-radius 15 15 0 0
+    geometry-corner-radius 0 20 0 10
     clip-to-geometry true
+    //open-maximized true
 }
 
 binds {
