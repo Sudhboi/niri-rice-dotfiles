@@ -3,9 +3,9 @@
     "layer": "top",
     "position": "left",
     //"height"
-    "margin-top": 5,
-    "margin-bottom": 5,
-    "margin-left": 5,
+    "margin-top": 4,
+    "margin-bottom": 4,
+    "margin-left": 4,
     "width": 40,
 
     "modules-left": [
@@ -52,7 +52,8 @@
         },
         "on-click": "pactl set-sink-mute 0 toggle",
         "tooltip": false,
-        "justify": "center"
+        "justify": "center",
+        "reverse-scrolling": true
     },
 
     "pulseaudio/slider": {
@@ -77,7 +78,8 @@
         "format": "{percent}\n{icon}",
         "format-icons": ["", "", "", "", "", "", "", "", ""],
         "tooltip": false,
-        "justify": "center"
+        "justify": "center",
+        "reverse-scrolling": true
     },
 
     "backlight/slider": {
@@ -131,13 +133,16 @@
     
     "niri/window": {
         "tooltip": false,
-        "format": "{title}",
-        "rotate": 270
+        "format": "{}",
+        "rotate": 270,
+        "rewrite": {
+            "^null$": "Desktop"
+        }
     },
 
     "custom/appmenu": {
         "format": "󰀻",
-        "on-click": "niri msg action open-overview",
+        "on-click": "niri msg action toggle-overview",
         "tooltip": false
     },
 

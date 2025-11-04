@@ -325,7 +325,9 @@ window-rule {
 // Draw borders around windows
 window-rule {
     draw-border-with-background false
+    //open-maximized-to-edges true
 }
+
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     // This app-id regular expression will work for both:
@@ -333,6 +335,10 @@ window-rule {
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"zen$"# title="^Picture-in-Picture$"
     open-floating true
+}
+
+window-rule {
+    match app-id=r#"zen$"#
 }
 
 window-rule {

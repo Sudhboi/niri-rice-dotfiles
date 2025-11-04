@@ -29,9 +29,10 @@ window#waybar {
 }
 
 window#waybar.empty {
-    opacity: 0.0;
-    background-color: transparent;
+    /*opacity: 0.0;*/
+    background-color: @hover-black;
     transition-duration: 0.5s;
+    border-radius: 0px 20px 20px 0px;
 }
 
 button {
@@ -67,6 +68,10 @@ button,
 
 #window {
     margin: 20px 0px;
+}
+
+window#waybar.empty #window {
+    opacity: 0;
 }
 
 #clock {
