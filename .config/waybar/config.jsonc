@@ -19,7 +19,7 @@
     ],
 
     "modules-right": [
-        //"network",
+        "network",
         "group/apps",
         "group/stats",
         "clock"

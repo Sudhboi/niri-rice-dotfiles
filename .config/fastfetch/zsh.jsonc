@@ -19,50 +19,50 @@
         "break",
         {
             "type": "custom",
-            "key": "╭─────────────────────────────────╮"
+            "key": "╭────────────────────────────────╮"
         },
         {
             "type": "kernel",
-            "key": "│  kernel  ",
+            "key": "│ kernel  ",
             "format": "{release>21}  │"
         },
         {
             "type": "command",
-            "key": "│  uptime  ",
+            "key": "│ uptime  ",
             "text": "uptime -p | cut -d ' ' -f 2-",
             "format": "{>21}  │"
         },
         {
             "type": "shell",
-            "key": "│  shell   ",
+            "key": "│ shell   ",
             "format": "{pretty-name>21}  │"
         },
         {
             "type": "command",
-            "key": "│  mem     ",
+            "key": "│ mem     ",
             "text": "free -m | awk 'NR==2{printf \"%.2f GiB / %.2f GiB\",$3/1024,$2/1024}'",
             "format": "{>21}  │"
         },
         {
             "type": "packages",
-            "key": "│  pkgs    ",
+            "key": "│ pkgs    ",
             "format": "{all>21}  │"
         },
         {
             "type": "command",
-            "key": "│  user    ",
+            "key": "│ user    ",
             "text": "echo $USER",
             "format": "{>21}  │"
         },
         {
             "type": "command",
-            "key": "│  hname   ",
+            "key": "│ hname   ",
             "text": "hostnamectl hostname",
             "format": "{>21}  │"
         },
         {
             "type": "custom",
-            "key": "╰─────────────────────────────────╯"
+            "key": "╰────────────────────────────────╯"
         },
         "break"
     ]

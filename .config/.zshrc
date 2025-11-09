@@ -1,5 +1,5 @@
 
-fastfetch -c ~/.config/fastfetch/zsh.jsonc
+kitten icat -n --place 45x45@0x3 --scale-up --align left ~/.config/fastfetch/ascii_wave.gif 2> /dev/null | fastfetch -c ~/.config/fastfetch/zsh.jsonc --logo-width 45 --raw - 2> /dev/null
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -9,7 +9,7 @@ fastfetch -c ~/.config/fastfetch/zsh.jsonc
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-
+source $HOME/.elan/env
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 

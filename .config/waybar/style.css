@@ -1,31 +1,32 @@
-@define-color gruv-blue rgba(69, 133, 136, 0.8);
-@define-color gruv-green rgba(104, 157, 106, 0.8);
-@define-color gruv-magenta rgba(177, 98, 134, 0.8);
-@define-color gruv-red rgba(204, 36, 29, 0.8);
-@define-color gruv-orange rgba(214, 93, 14, 0.8);
-@define-color gruv-yellow rgba(215, 153, 33, 0.8);
-@define-color gruv-lime rgba(184, 187, 38, 0.8);
-@define-color gruv-beige rgba(235, 219, 178, 0.8);
-@define-color gruv-grey rgba(168, 153, 132, 0.8);
 
-@define-color background-blue rgba(13, 17, 23, 0.8);
-@define-color text-white rgba(255, 255, 255, 0.9);
+@define-color gruv-blue         rgba(69, 133, 136, 0.8);
+@define-color gruv-green        rgba(104, 157, 106, 0.8);
+@define-color gruv-magenta      rgba(177, 98, 134, 0.8);
+@define-color gruv-red          rgba(204, 36, 29, 0.8);
+@define-color gruv-orange       rgba(214, 93, 14, 0.8);
+@define-color gruv-yellow       rgba(215, 153, 33, 0.8);
+@define-color gruv-lime         rgba(184, 187, 38, 0.8);
+@define-color gruv-beige        rgba(235, 219, 178, 0.8);
+@define-color gruv-grey         rgba(168, 153, 132, 0.8);
 
-@define-color hover-black rgba(0, 0, 0, 0.3);
-@define-color mute-black rgba(0, 0, 0, 0.6);
+@define-color background-blue   rgba(13, 17, 23, 0.8);
+@define-color text-white        rgba(255, 255, 255, 0.9);
+
+@define-color hover-black       rgba(0, 0, 0, 0.3);
+@define-color mute-black        rgba(0, 0, 0, 0.6);
 
 * {
     font-family: 'DaddyTimeMono Nerd Font Propo';
     font-size: 13px;
     /*border-radius: 0px;*/
-    transition-duration: 0.5s;
+    transition: 0.5s ease-out;
 }
 
 window#waybar {
     background-color: @background-blue;
     color: @text-white;
     transition-property: background-color;
-    transition-duration: 1s;
+    transition: 1s ease-in-out;
 }
 
 window#waybar.empty {
@@ -54,6 +55,7 @@ button:hover {
 #user,
 button,
 #window, 
+#network,
 #custom-appmenu,
 #backlight,
 #backlight-slider,
@@ -81,6 +83,10 @@ window#waybar.empty #window {
 #clock:hover {
     color: @gruv-blue;
     background-color: @hover-black;
+}
+
+window#waybar.empty #clock {
+    border-radius: 0 0 20px 0;
 }
 
 #pulseaudio,
@@ -185,6 +191,10 @@ window#waybar.empty #window {
     box-shadow: inset 2px 0px @gruv-orange;
 }
 
+#taskbar button {
+    padding: 5px 0;
+}
+
 #taskbar button.active {
     background: @mute-black;
     box-shadow: inset 2px 0px @gruv-lime;
@@ -206,6 +216,10 @@ window#waybar.empty #window {
 
 #custom-powerbutton {
     box-shadow: inset 2px 0px @gruv-red;
+}
+
+window#waybar.empty #custom-powerbutton {
+    border-radius: 0 20px 0 0;
 }
 
 #custom-reboot:hover {
@@ -253,6 +267,7 @@ window#waybar.empty #window {
     box-shadow: inset 2px 0px @gruv-green;
 }
 
+#taskbar,
 #workspaces {
     background: transparent;
     border-radius: 0px;
@@ -300,3 +315,8 @@ window#waybar.empty #window {
 #custom-playpause {
     box-shadow: inset 2px 0px @gruv-yellow;
 }
+
+#network.disconnected {
+    background-color: @gruv-red;
+}
+
