@@ -15,7 +15,6 @@ copydir kitty
 copydir mako
 copydir nvim
 copydir rofi
-copydir tmux
 copydir waybar
 copydir zellij
 copydir scripts
