@@ -1,5 +1,4 @@
 
-kitten icat -n --place 45x45@0x3 --scale-up --align left ~/.config/fastfetch/ascii_wave.gif 2> /dev/null | fastfetch -c ~/.config/fastfetch/zsh.jsonc --logo-width 45 --raw - 2> /dev/null
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -121,6 +120,7 @@ function y() {
 alias q="exit"
 
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/clones/awww/target/release:$PATH"
 
 export PATH_TO_FX="/usr/lib/jvm/openjfx"
 
@@ -139,6 +139,8 @@ function mc () {
 
 alias dotfiles="/home/sudhirk/.backups/dotfiles/push.sh"
 alias purge-dotfiles-log="rm /home/sudhirk/.backups/log.txt"
+
+
 
 ORANGE='\033[38;2;241;128;2m'
 RESET='\033[0m'
@@ -162,3 +164,4 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 #[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+kitten icat -n --place 45x45@0x3 --scale-up --align left ~/.config/fastfetch/ascii_wave.gif 2> /dev/null | fastfetch -c ~/.config/fastfetch/zsh.jsonc --logo-width 45 --raw - 2> /dev/null

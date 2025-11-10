@@ -18,6 +18,7 @@ copydir rofi
 copydir tmux
 copydir waybar
 copydir zellij
+copydir scripts
 
 cp -r ~/.zshrc $DOTFILES/.config
 

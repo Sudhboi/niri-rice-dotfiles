@@ -66,7 +66,7 @@ input {
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-    focus-follows-mouse max-scroll-amount="0%"
+    focus-follows-mouse max-scroll-amount="10%"
 }
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
@@ -266,11 +266,12 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-sh-at-startup "sleep 2 && hyprlock --grace 30"
-spawn-sh-at-startup "sleep 3 && waybar"
+spawn-sh-at-startup "waybar"
 spawn-at-startup "mako"
-spawn-sh-at-startup "~/.local/bin/wpaperd -d"
+spawn-sh-at-startup "~/clones/awww/target/release/awww-daemon"
+spawn-sh-at-startup "python ~/.config/scripts/wallpaper_switcher.py"
 spawn-sh-at-startup "hypridle"
+spawn-sh-at-startup "hyprlock --grace 30"
 spawn-sh-at-startup "systemctl --user start hyprpolkitagent"
 
 
@@ -658,7 +659,7 @@ cursor {
 }
 
 layer-rule {
-    match namespace="wpaperd-eDP-1"
+    match namespace="awww-daemon"
     place-within-backdrop true
 }
 
