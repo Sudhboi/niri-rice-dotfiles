@@ -2,12 +2,20 @@ import subprocess
 import os
 import time
 import random
+import sys
 
 wallpaper_directory = "/home/sudhirk/Pictures/Wallpapers"
 pictures = os.listdir(wallpaper_directory)
 interval = 120
 
-subprocess.run(["notify-send", "Wallpaper Manager Started!"])
+if len(sys.argv) > 1:
+    subprocess.run(
+        [
+            "notify-send",
+            "Wallpaper Manager Started!"
+            + (" (Boot Mode) " if sys.argv[1] == "boot" else ""),
+        ]
+    )
 
 
 def get_wallpaper(num, transition_type):
@@ -25,15 +33,16 @@ def get_wallpaper(num, transition_type):
 
 
 try:
-    while (
-        subprocess.run(
-            get_wallpaper(random.randrange(len(pictures)), "none")
-        ).returncode
-        == 1
-    ):
-        subprocess.run(["notify-send", "Can't Find awww socket!"])
+    if len(sys.argv) > 1 and sys.argv[1] == "boot":
+        while (
+            subprocess.run(
+                get_wallpaper(random.randrange(len(pictures)), "none")
+            ).returncode
+            == 1
+        ):
+            subprocess.run(["notify-send", "Can't Find awww socket!"])
 
-    time.sleep(interval)
+        time.sleep(interval)
 
     while True:
         num_pic = random.randrange(len(pictures))

@@ -18,6 +18,7 @@ copydir rofi
 copydir waybar
 copydir zellij
 copydir scripts
+copydir quickshell
 
 cp -r ~/.zshrc $DOTFILES/.config
 
