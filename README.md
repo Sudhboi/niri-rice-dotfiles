@@ -6,7 +6,7 @@ This is my (gruvbox-adjacent) Niri rice with a focus on transparency and changin
 
 | Tool | Application |
 |:-----------:|:----:|
-| Distro | Fedora 42 |
+| Distro | Fedora 43 |
 | Window Manager | Niri |
 | Status Bar | Waybar |
 | Wallpaper Daemon | awww|
