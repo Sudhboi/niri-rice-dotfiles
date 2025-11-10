@@ -7,15 +7,17 @@ import sys
 wallpaper_directory = "/home/sudhirk/Pictures/Wallpapers"
 pictures = os.listdir(wallpaper_directory)
 interval = 120
+used_wallpapers = []
 
-if len(sys.argv) > 1:
-    subprocess.run(
-        [
-            "notify-send",
-            "Wallpaper Manager Started!"
-            + (" (Boot Mode) " if sys.argv[1] == "boot" else ""),
-        ]
-    )
+if len(sys.argv) >= 3:
+    if sys.argv[2] == "debug":
+        subprocess.run(
+            [
+                "notify-send",
+                "Wallpaper Manager Started!"
+                + (" (Boot Mode) " if sys.argv[1] == "boot" else ""),
+            ]
+        )
 
 
 def get_wallpaper(num, transition_type):
@@ -45,8 +47,17 @@ try:
         time.sleep(interval)
 
     while True:
+        if len(used_wallpapers) == len(pictures):
+            used_wallpapers = []
+
         num_pic = random.randrange(len(pictures))
-        subprocess.run(get_wallpaper(num_pic, "center"))
+
+        while num_pic in used_wallpapers:
+            num_pic = random.randrange(len(pictures))
+
+        subprocess.run(get_wallpaper(num_pic, "any"))
+        used_wallpapers.append(num_pic)
+
         time.sleep(interval)
 except Exception as e:
     subprocess.run(["notify-send", str(e)])

@@ -1,6 +1,7 @@
 import Quickshell
 
 Scope {
-    //Bar {}
     Volume {}
+    //ImageTest {}
+    WallpaperManager {}
 }
