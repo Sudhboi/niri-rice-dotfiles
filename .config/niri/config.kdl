@@ -270,6 +270,7 @@ spawn-sh-at-startup "waybar"
 spawn-at-startup "mako"
 spawn-sh-at-startup "~/clones/awww/target/release/awww-daemon"
 spawn-sh-at-startup "python ~/.config/scripts/wallpaper_switcher.py boot"
+spawn-sh-at-startup "quickshell"
 spawn-sh-at-startup "hypridle"
 spawn-sh-at-startup "hyprlock --grace 30"
 spawn-sh-at-startup "systemctl --user start hyprpolkitagent"
@@ -403,6 +404,7 @@ binds {
     //Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
     //Mod+R {spawn-sh "rofi -show drun -theme appmenu.rasi"; }
     Mod+W {spawn-sh "pkill waybar || waybar"; }
+    Mod+S {spawn-sh "pkill quickshell || quickshell"; }
     Mod+Alt+I {spawn-sh "pkill hypridle || hypridle"; }
     Mod+Z {spawn "zen-browser"; }
 
