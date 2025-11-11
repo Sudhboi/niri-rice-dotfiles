@@ -4,15 +4,20 @@ import QtQuick
 
 
 Scope {
-    property string scriptsPath: "/home/sudhirk/.config/quickshell/pythonScripts/Wallpaper/";
-
     id: root;
+
+    required property string scriptsPath
+
+    property Timer periodicWallpaperTimer : periodicWallpaperTimer
+    property var currentImageIndex : "0"
+    property Process setWallpaperWithIndex: setWallpaperWithIndex
 
     Process {
         id: setWallpaperBoot;
 
         running: true;
-        command: ["sh", "-c", "python " + scriptsPath + "set_wallpaper_boot.py"];
+        command: ["sh", "-c", "python " + scriptsPath + "set_wallpaper.py boot"];
+        stdout: basicCollector
     }
 
     Process {
@@ -20,13 +25,15 @@ Scope {
 
         running: false;
         command: ["sh", "-c", "python " + scriptsPath + "set_wallpaper.py random"];
+        stdout: basicCollector
     }
 
     Process {
-        id: setWallpaperWithName;
+        id: setWallpaperWithIndex;
 
         running: false;
-        command: ["sh", "-c", "python " + scriptsPath + "set_wallpaper.py name " + currentImage];
+        command: ["sh", "-c", "python " + scriptsPath + "set_wallpaper.py number " + currentImageIndex];
+        stdout: basicCollector
     }
 
     Timer {
@@ -54,6 +61,14 @@ Scope {
         function setWallpaper() : void {
             setWallpaperWithName.running = true;
             periodicWallpaperTimer.restart()
+        }
+    }
+
+    StdioCollector {
+        id: basicCollector
+        onStreamFinished: {
+            currentImageIndex = `${this.text}`;
+            console.info(currentImageIndex);
         }
     }
 

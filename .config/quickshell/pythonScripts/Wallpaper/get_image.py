@@ -25,13 +25,13 @@ def get_command(image, transition_type):
 
 
 def set_wallpaper_boot():
-    while (
-        subprocess.run(
-            get_command(get_image(random.randrange(len(pictures))), "none")
+    rand_num = random.randrange(len(pictures))
+    return_code = 1
+    while return_code == 1:
+        return_code = subprocess.run(
+            get_command(get_image(rand_num), "none")
         ).returncode
-        == 1
-    ):
-        pass
+    return rand_num
 
 
 def set_wallpaper(num):

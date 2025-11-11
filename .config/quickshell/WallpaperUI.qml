@@ -5,8 +5,9 @@ import QtQuick.Layouts
 import QtQuick.Controls
 
 Scope {
-    property string scriptsPath: "/home/sudhirk/.config/quickshell/pythonScripts/Wallpaper/";
-    property var currentImage
+    required property string scriptsPath
+
+    required property WallpaperManager wallpaperManager
 
     id: root
 
@@ -19,8 +20,8 @@ Scope {
             margins.bottom: 15;
             focusable: true;
 
-            implicitHeight: 300;
-            implicitWidth: 480;
+            implicitHeight: 200;
+            implicitWidth: 320;
             color: "#cc0d1117";
 
             exclusiveZone: 0;
@@ -42,8 +43,11 @@ Scope {
                 }
 
                 Keys.onReturnPressed: {
-                    currentImage = view.currentIndex;
-                    changeWallpaper.running = true;
+                    wallpaperManager.currentImageIndex = view.currentIndex;
+                    wallpaperManager.setWallpaperWithIndex.running = true;
+                    uiLoader.active = false;
+                    wallpaperManager.periodicWallpaperTimer.restart();
+                    notifyManualChange.running = true;
                 }
             }
         }
@@ -58,14 +62,9 @@ Scope {
     }
 
     Process {
-        id: test
-        command: ["notify-send", currentImage];
+        id: notifyManualChange
+        command: ["notify-send", "Set Wallpaper to Index " + wallpaperManager.currentImageIndex];
         running: false
     }
 
-    Process {
-        id: changeWallpaper
-        command: ["sh", "-c", "python " + scriptsPath + "set_wallpaper.py number " + currentImage];
-        running: false
-    }
 }
