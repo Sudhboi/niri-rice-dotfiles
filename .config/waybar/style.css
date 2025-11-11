@@ -52,6 +52,7 @@ button:hover {
 #custom-lock,
 #custom-idlekiller,
 #custom-playpause,
+#custom-wallpaper,
 #user,
 button,
 #window, 
@@ -318,5 +319,14 @@ window#waybar.empty #custom-powerbutton {
 
 #network.disconnected {
     background-color: @gruv-red;
+}
+
+#custom-wallpaper:hover {
+    color: @gruv-blue;
+    background-color: @hover-black;
+}
+
+#custom-wallpaper {
+    box-shadow: inset 2px 0px @gruv-blue;
 }
 

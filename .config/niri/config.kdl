@@ -269,7 +269,6 @@ layout {
 spawn-sh-at-startup "waybar"
 spawn-at-startup "mako"
 spawn-sh-at-startup "~/clones/awww/target/release/awww-daemon"
-//spawn-sh-at-startup "python ~/.config/scripts/wallpaper_switcher.py boot"
 spawn-sh-at-startup "quickshell"
 spawn-sh-at-startup "hypridle"
 spawn-sh-at-startup "sleep 2 && hyprlock --grace 30"

@@ -11,6 +11,7 @@
     "modules-left": [
         "group/power",
         "custom/playpause",
+        "custom/wallpaper",
         "niri/workspaces"
     ],
 
@@ -232,4 +233,10 @@
         "on-click": "playerctl play-pause",
         "tooltip": false
     },
+
+    "custom/wallpaper": {
+        "format": "󰸉",
+        "on-click": "qs ipc call setWallpaperPeriodic nextWallpaper",
+        "tooltip": false
+    }
 }
