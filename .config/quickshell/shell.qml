@@ -6,4 +6,5 @@ Scope {
 
     Volume {}
     WallpaperManager { id: wallpaperManager }
+    WallpaperUI { id: wallpaperUI }
 }

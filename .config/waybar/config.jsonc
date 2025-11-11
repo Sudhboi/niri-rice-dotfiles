@@ -236,7 +236,7 @@
 
     "custom/wallpaper": {
         "format": "󰸉",
-        "on-click": "qs ipc call setWallpaperPeriodic nextWallpaper",
+        "on-click": "qs ipc call uiLoader toggleWallpaperSwitcher",
         "tooltip": false
     }
 }

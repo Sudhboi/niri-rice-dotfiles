@@ -36,3 +36,7 @@ def set_wallpaper_boot():
 
 def set_wallpaper(num):
     subprocess.run(get_command(get_image(num), "any"))
+
+
+def set_wallpaper_with_name(name):
+    subprocess.run(get_command(name, "any"))
