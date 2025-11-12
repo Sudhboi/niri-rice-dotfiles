@@ -10,6 +10,7 @@ Scope {
     required property WallpaperManager wallpaperManager
     readonly property var jsonData : JSON.parse(jsonFile.text())
     required property int numWallpapers
+    property var colorArray : ["#fffb4934", "#ffb8bb26", "#fffabd2f", "#ffd65d0e", "#ff83a598", "#ffd3869b", "#ff8ec07c"]
 
     id: root
 
@@ -25,38 +26,115 @@ Scope {
             focusable: true;
 
             implicitHeight: 200;
-            implicitWidth: 320;
-            color: "#cc0d1117";
+            implicitWidth: 240 + 320 + 240;
+            color: "transparent";
 
             exclusiveZone: 0;
 
-            SwipeView {
-
-                id: swipeView
+            RowLayout {
+                spacing : 0;
                 anchors.fill: parent
-                currentIndex: wallpaperManager.currentImageIndex
-                focus: true
 
-                Repeater {
-                    model: numWallpapers;
-                    Loader {
-                        active: SwipeView.isCurrentItem || SwipeView.isNextItem || SwipeView.isPreviousItem
-                        sourceComponent: WallpaperUIItem {
-                            imageName: root.jsonData[index]
+                Rectangle {
+                    Layout.preferredHeight: 150
+                    Layout.preferredWidth: 240
+                    Layout.alignment: Qt.AlignBottom
+                    color: "#cc0d1117"
+                    clip: true
+                    SwipeView {
+
+                        id: leftView
+                        anchors.fill : parent
+                        currentIndex : swipeView.currentIndex - 1
+                        focus : false
+                        interactive : false
+
+                        Repeater {
+                            model: numWallpapers;
+                            Loader {
+                                active: SwipeView.isCurrentItem || SwipeView.isNextItem || SwipeView.isPreviousItem
+                                sourceComponent: WallpaperUIItem {
+                                    imageName: root.jsonData[index]
+                                    lineColor : root.colorArray[index % root.colorArray.length]
+                                    imageHeight: 150
+                                }
+                                asynchronous : true
+                            }
                         }
-                        asynchronous: true
+
                     }
                 }
 
-                Keys.onReturnPressed: {
-                    wallpaperManager.currentImageIndex = swipeView.currentIndex;
-                    wallpaperManager.setWallpaperWithIndex.running = true;
-                    wallpaperManager.periodicWallpaperTimer.restart();
-                    //notifyManualChange.running = true;
+                Rectangle {
+
+                    Layout.preferredWidth: 320
+                    Layout.fillHeight: true
+                    color : "#cc0d1117"
+                    clip:true
+
+                    SwipeView {
+
+                        id: swipeView
+                        anchors.fill: parent
+                        currentIndex: wallpaperManager.currentImageIndex
+                        focus: true
+
+                        Repeater {
+                            model: numWallpapers;
+                            Loader {
+                                active: SwipeView.isCurrentItem || SwipeView.isNextItem || SwipeView.isPreviousItem
+                                sourceComponent: WallpaperUIItem {
+                                    imageName: root.jsonData[index]
+                                    lineColor: root.colorArray[index % root.colorArray.length]
+                                    imageHeight: 200
+                                }
+                                asynchronous: true
+                            }
+                        }
+
+                        Keys.onReturnPressed: {
+                            wallpaperManager.currentImageIndex = swipeView.currentIndex;
+                            wallpaperManager.setWallpaperWithIndex.running = true;
+                            wallpaperManager.periodicWallpaperTimer.restart();
+                            //notifyManualChange.running = true;
+                        }
+
+                        Keys.onEscapePressed: {
+                            panelWindow.visible = false;
+                        }
+
+                    }
+
                 }
 
-                Keys.onEscapePressed: {
-                    panelWindow.visible = false;
+                Rectangle {
+                    Layout.preferredHeight: 150
+                    Layout.preferredWidth: 240
+                    Layout.alignment: Qt.AlignBottom
+                    color: "#cc0d1117"
+                    clip: true
+                    SwipeView {
+
+                        id: rightView
+                        anchors.fill : parent
+                        currentIndex : swipeView.currentIndex + 1
+                        focus : false
+                        interactive : false
+
+                        Repeater {
+                            model: numWallpapers;
+                            Loader {
+                                active: SwipeView.isCurrentItem || SwipeView.isNextItem || SwipeView.isPreviousItem
+                                sourceComponent: WallpaperUIItem {
+                                    imageName: root.jsonData[index]
+                                    lineColor : root.colorArray[index % root.colorArray.length]
+                                    imageHeight: 150
+                                }
+                                asynchronous : true
+                            }
+                        }
+
+                    }
                 }
 
             }
@@ -67,9 +145,9 @@ Scope {
         target: "panelWindow";
 
         function toggleWallpaperSwitcher () : void {
-            var currentItem = wallpaperManager.currentImageIndex
-            //swipeView.setCurrentIndex(currentItem)
             panelWindow.visible = !panelWindow.visible;
+            swipeView.decrementCurrentIndex();
+            swipeView.incrementCurrentIndex();
         }
     }
 
