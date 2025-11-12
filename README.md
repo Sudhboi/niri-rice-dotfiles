@@ -9,7 +9,7 @@ This is my (gruvbox-adjacent) Niri rice with a focus on transparency and changin
 | Distro | Fedora 43 |
 | Window Manager | Niri |
 | Status Bar | Waybar |
-| Wallpaper Daemon | awww|
+| Wallpaper | awww + quickshell|
 | Resource Monitor | btop |
 | Lock Screen | hyprlock |
 | Idle Daemon | hypridle |
