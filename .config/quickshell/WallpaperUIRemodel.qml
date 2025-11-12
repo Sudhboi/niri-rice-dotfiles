@@ -9,14 +9,14 @@ Scope {
 
     required property WallpaperManager wallpaperManager
     readonly property var jsonData : JSON.parse(jsonFile.text())
+    required property int numWallpapers
 
     id: root
 
     Loader {
-        id: uiLoader;
-        active: false;
 
         PanelWindow {
+
             id: panelWindow;
             visible: false;
 
@@ -31,56 +31,45 @@ Scope {
             exclusiveZone: 0;
 
             SwipeView {
+
                 id: swipeView
                 anchors.fill: parent
-                currentIndex: 0
+                currentIndex: wallpaperManager.currentImageIndex
                 focus: true
 
-                //Item {
-                //    WallpaperUIItem {imageName: getName(0) }
-                //}
+                Repeater {
+                    model: numWallpapers;
+                    Loader {
+                        active: SwipeView.isCurrentItem || SwipeView.isNextItem || SwipeView.isPreviousItem
+                        sourceComponent: WallpaperUIItem {
+                            imageName: root.jsonData[index]
+                        }
+                        asynchronous: true
+                    }
+                }
 
                 Keys.onReturnPressed: {
-                    wallpaperManager.currentImageIndex = view.currentIndex;
+                    wallpaperManager.currentImageIndex = swipeView.currentIndex;
                     wallpaperManager.setWallpaperWithIndex.running = true;
-                    uiLoader.active = false;
                     wallpaperManager.periodicWallpaperTimer.restart();
-                    notifyManualChange.running = true;
+                    //notifyManualChange.running = true;
                 }
 
-                Keys.onRightPressed: {
-                    insertItem(currentIndex + 2, getItem(currentIndex + 2));
+                Keys.onEscapePressed: {
+                    panelWindow.visible = false;
                 }
-            }
-            function hi () {
-                console.info("In panelWindow");
-                swipeView.insertItem(swipeView.currentIndex, getItem(swipeView.currentIndex));
-            }
-        }
 
-        function hello () {
-            console.info("In uiLoader");
-            if (active) {
-                console.info("Is active");
             }
-            else {
-                console.info("not active")
-            }
-            panelWindow.hi()
-            panelWindow.visible = !panelWindow.visible;
         }
     }
 
     IpcHandler {
-        target: "uiLoader";
+        target: "panelWindow";
 
         function toggleWallpaperSwitcher () : void {
-            //uiLoader.active = !uiLoader.active;
             var currentItem = wallpaperManager.currentImageIndex
-            uiLoader.hello()
-            //root.view.setCurrentIndex(currentItem)
-            //console.info(eval("JSON.parse(jsonFile.text())[1]"))
-            //view.insertItem(currentItem, WallpaperUIItem { imageName : eval("JSON.parse(jsonFile.text())[1]") })
+            //swipeView.setCurrentIndex(currentItem)
+            panelWindow.visible = !panelWindow.visible;
         }
     }
 
@@ -97,7 +86,7 @@ Scope {
     }
 
     function getName (index) {
-        return eval("JSON.parse(jsonFile.text())[" + index + "]")
+        return root.jsonData[index]
     }
 
     function getItem (index) {

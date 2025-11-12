@@ -8,3 +8,5 @@ for i in range(len(get_image.pictures)):
 
 with open("pictures.json", "w") as file:
     json.dump(pict_dict, file)
+
+print(len(pict_dict))

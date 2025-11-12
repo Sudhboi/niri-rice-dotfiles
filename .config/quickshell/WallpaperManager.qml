@@ -62,6 +62,10 @@ Scope {
             setWallpaperWithName.running = true;
             periodicWallpaperTimer.restart()
         }
+
+        function getCurrentWallpaper() : string {
+            return currentImageIndex;
+        }
     }
 
     StdioCollector {

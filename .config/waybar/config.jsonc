@@ -236,7 +236,7 @@
 
     "custom/wallpaper": {
         "format": "󰸉",
-        "on-click": "qs ipc call uiLoader toggleWallpaperSwitcher",
+        "on-click": "qs ipc call panelWindow toggleWallpaperSwitcher",
         "tooltip": false
     }
 }
