@@ -10,7 +10,7 @@ Scope {
     required property WallpaperManager wallpaperManager
     readonly property var jsonData : JSON.parse(jsonFile.text())
     required property int numWallpapers
-    property var colorArray : ["#fffb4934", "#ffb8bb26", "#fffabd2f", "#ffd65d0e", "#ff83a598", "#ffd3869b", "#ff8ec07c"]
+    property var colorArray : ["#cdfb4934", "#cdb8bb26", "#cdfabd2f", "#cdd65d0e", "#cd83a598", "#cdd3869b", "#cd8ec07c"]
 
     id: root
 
@@ -26,7 +26,7 @@ Scope {
             focusable: true;
 
             implicitHeight: 200;
-            implicitWidth: 240 + 320 + 240;
+            implicitWidth: 230 + 320 + 230;
             color: "transparent";
 
             exclusiveZone: 0;
@@ -37,9 +37,9 @@ Scope {
 
                 Rectangle {
                     Layout.preferredHeight: 150
-                    Layout.preferredWidth: 240
-                    Layout.alignment: Qt.AlignBottom
+                    Layout.preferredWidth: 230
                     color: "#cc0d1117"
+                    Layout.alignment: Qt.AlignBottom
                     clip: true
                     SwipeView {
 
@@ -57,6 +57,7 @@ Scope {
                                     imageName: root.jsonData[index]
                                     lineColor : root.colorArray[index % root.colorArray.length]
                                     imageHeight: 150
+                                    imageLeftMargin : 10
                                 }
                                 asynchronous : true
                             }
@@ -87,6 +88,8 @@ Scope {
                                     imageName: root.jsonData[index]
                                     lineColor: root.colorArray[index % root.colorArray.length]
                                     imageHeight: 200
+                                    imageRightMargin: 10
+                                    imageLeftMargin: 10
                                 }
                                 asynchronous: true
                             }
@@ -109,7 +112,7 @@ Scope {
 
                 Rectangle {
                     Layout.preferredHeight: 150
-                    Layout.preferredWidth: 240
+                    Layout.preferredWidth: 230
                     Layout.alignment: Qt.AlignBottom
                     color: "#cc0d1117"
                     clip: true
@@ -129,6 +132,7 @@ Scope {
                                     imageName: root.jsonData[index]
                                     lineColor : root.colorArray[index % root.colorArray.length]
                                     imageHeight: 150
+                                    imageRightMargin: 10
                                 }
                                 asynchronous : true
                             }
@@ -149,6 +153,11 @@ Scope {
             swipeView.decrementCurrentIndex();
             swipeView.incrementCurrentIndex();
         }
+
+        function check () : void {
+            console.info(jsonFile.text())
+            console.info(numWallpapers)
+        }
     }
 
     Process {
@@ -161,6 +170,8 @@ Scope {
         id : jsonFile
         path: Qt.resolvedUrl("./pythonScripts/Wallpaper/pictures.json")
         blockLoading: true
+        watchChanges: true
+        onFileChanged: this.reload()
     }
 
     function getName (index) {

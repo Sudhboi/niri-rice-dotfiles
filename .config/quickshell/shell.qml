@@ -6,6 +6,17 @@ Scope {
     property string wallpaperScriptsPath : "/home/sudhirk/.config/quickshell/pythonScripts/Wallpaper/"
     property int numWallpapers
 
+    Process {
+        running : true
+        command : ["sh", "-c", "python " + wallpaperScriptsPath + "create_json.py"]
+        stdout : StdioCollector {
+            onStreamFinished : {
+                numWallpapers = parseInt(`${this.text}`)
+                console.info(numWallpapers)
+            }
+        }
+    }
+
     Volume {}
 
     WallpaperManager {
@@ -17,20 +28,11 @@ Scope {
         id: wallpaperUI 
         wallpaperManager: wallpaperManager
         scriptsPath : wallpaperScriptsPath
-        numWallpapers : 52
+        numWallpapers : 70
     }
 
     //WallpaperUIItemList {}
 
     //JSONFileHandler {}
     
-    Process {
-        running : true
-        command : ["sh", "-c", "python " + wallpaperScriptsPath + "create_json.py"]
-        stdout : StdioCollector {
-            onStreamFinished : {
-                numWallpapers = parseInt(`${this.text}`)
-            }
-        }
-    }
 }
