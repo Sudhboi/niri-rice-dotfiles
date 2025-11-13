@@ -8,7 +8,7 @@ This is my (gruvbox-adjacent) Niri rice with a focus on transparency and changin
 
 New Waybar -
 
-https://github.com/user-attachments/assets/6bad7219-80eb-46c1-9985-fa7635cf003b
+https://github.com/user-attachments/assets/365285bb-3908-4bd3-ab41-430bd8ab61f0
 
 ## My Setup
 
