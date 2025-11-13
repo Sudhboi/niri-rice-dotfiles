@@ -2,6 +2,10 @@
 
 This is my (gruvbox-adjacent) Niri rice with a focus on transparency and changing pixels to preserve OLED screens. Most of my configuration focuses on Translucent Widgets and turning off the screen, combined with a wallpaper that changes every two minutes.
 
+## Rice Screenshot
+
+![Main Screenshot](ScreenShots_GIFs/newDesktop.png)
+
 ## My Setup
 
 | Tool | Application |
