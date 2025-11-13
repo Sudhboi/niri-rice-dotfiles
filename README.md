@@ -6,6 +6,10 @@ This is my (gruvbox-adjacent) Niri rice with a focus on transparency and changin
 
 ![Main Screenshot](ScreenShots_GIFs/newDesktop.png)
 
+New Waybar -
+
+https://github.com/user-attachments/assets/6bad7219-80eb-46c1-9985-fa7635cf003b
+
 ## My Setup
 
 | Tool | Application |
