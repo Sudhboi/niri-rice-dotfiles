@@ -271,8 +271,8 @@ spawn-at-startup "mako"
 spawn-sh-at-startup "~/clones/awww/target/release/awww-daemon"
 spawn-sh-at-startup "quickshell"
 spawn-sh-at-startup "hypridle"
-spawn-sh-at-startup "sleep 2 && hyprlock --grace 30"
-spawn-sh-at-startup "systemctl --user start hyprpolkitagent"
+spawn-sh-at-startup "hyprlock --grace 30"
+spawn-sh-at-startup "/usr/libexec/kf6/polkit-kde-authentication-agent-1"
 
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
@@ -368,7 +368,7 @@ window-rule {
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
 window-rule {
-    //geometry-corner-radius 0 0 0 0
+    geometry-corner-radius 5
     clip-to-geometry true
     //open-maximized true
 }

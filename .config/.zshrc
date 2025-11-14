@@ -79,7 +79,7 @@ export EDITOR="nvim"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting yazi-zoxide-zsh)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -99,12 +99,30 @@ source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
-function y() {
+function yo() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
 	IFS= read -r -d '' cwd < "$tmp"
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
+}
+
+#function zy() {
+#    z $1
+#    y
+#}
+
+functions y() {
+  if [ "$1" != "" ]; then
+    if [ -d "$1" ]; then
+      yo "$1"
+    else
+      yo "$(zoxide query $1)"
+    fi
+  else
+    yo
+  fi
+    return $?
 }
 # Set personal aliases, overriding those provided by Oh My Zsh libs,
 # plugins, and themes. Aliases can be placed here, though Oh My Zsh
@@ -164,4 +182,5 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 #[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+eval "$(zoxide init zsh)"
 kitten icat -n --place 45x45@0x3 --scale-up --align left ~/.config/fastfetch/ascii_wave.gif 2> /dev/null | fastfetch -c ~/.config/fastfetch/zsh.jsonc --logo-width 45 --raw - 2> /dev/null
