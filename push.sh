@@ -22,10 +22,17 @@ copydir quickshell
 
 cp -r ~/.zshrc $DOTFILES/.config
 
-echo "\nPrint Diff?"
-read diff
-
 cd $DOTFILES
+
+echo "\nPull? (Y/n)"
+read pull
+
+if [ "$pull" != "n" ]; then
+    git pull
+fi
+
+echo "\nPrint Diff? (y/N)"
+read diff
 
 if [ "$diff" = "y" ]; then
     git diff
@@ -39,7 +46,7 @@ git add -A
 git commit -m $commit_message
 git push 
 
-echo "\nPrint Log?"
+echo "\nPrint Log? (y/N)"
 read confirm
 
 if [ "$confirm" = "y" ]; then

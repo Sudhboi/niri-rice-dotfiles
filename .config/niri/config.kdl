@@ -271,7 +271,7 @@ spawn-at-startup "mako"
 spawn-sh-at-startup "~/clones/awww/target/release/awww-daemon"
 spawn-sh-at-startup "quickshell"
 spawn-sh-at-startup "hypridle"
-spawn-sh-at-startup "hyprlock --grace 30"
+spawn-sh-at-startup "hyprlock --grace 60"
 spawn-sh-at-startup "/usr/libexec/kf6/polkit-kde-authentication-agent-1"
 
 
