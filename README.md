@@ -21,7 +21,7 @@ https://github.com/user-attachments/assets/365285bb-3908-4bd3-ab41-430bd8ab61f0
 | Resource Monitor | btop |
 | Lock Screen | hyprlock |
 | Idle Daemon | hypridle |
-| Notification Manager | mako |
+| Notification Manager | swaync |
 | File Manager | yazi |
 | App Launcher | rofi |
 | GRUB Theme | Grubshin Bootpact |

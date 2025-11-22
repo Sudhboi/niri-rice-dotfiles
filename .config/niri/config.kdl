@@ -267,7 +267,7 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-sh-at-startup "waybar"
-spawn-at-startup "mako"
+spawn-at-startup "swaync"
 spawn-sh-at-startup "~/clones/awww/target/release/awww-daemon"
 spawn-sh-at-startup "quickshell"
 spawn-sh-at-startup "hypridle"
@@ -406,6 +406,7 @@ binds {
     Mod+S {spawn-sh "pkill quickshell || quickshell"; }
     Mod+Alt+I {spawn-sh "pkill hypridle || hypridle"; }
     Mod+Z {spawn "zen-browser"; }
+    Mod+X {spawn "qutebrowser"; }
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
@@ -650,8 +651,11 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 
     //Volume Control with Touchpad
-    Mod+TouchpadScrollDown { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
-    Mod+TouchpadScrollUp { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
+    Mod+TouchpadScrollLeft { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
+    Mod+TouchpadScrollRight { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
+    Mod+TouchpadScrollDown { spawn-sh "brightnessctl set +1"; }
+    Mod+TouchpadScrollUp { spawn-sh "brightnessctl set 1-"; }
+
 }
 
 cursor {

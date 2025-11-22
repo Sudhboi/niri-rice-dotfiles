@@ -140,7 +140,7 @@ alias q="exit"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/clones/awww/target/release:$PATH"
 
-export PATH_TO_FX="/usr/lib/jvm/openjfx"
+export PATH_TO_FX="/usr/lib/jvm/javafx-sdk-21.0.9/lib"
 
 alias javac-fx="javac --module-path $PATH_TO_FX --add-modules javafx.controls,javafx.fxml"
 alias java-fx="java --module-path $PATH_TO_FX --add-modules javafx.controls,javafx.fxml --enable-native-access=javafx.graphics"

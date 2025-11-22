@@ -19,6 +19,7 @@ copydir waybar
 copydir zellij
 copydir scripts
 copydir quickshell
+copydir swaync
 
 cp -r ~/.zshrc $DOTFILES/.config
 
